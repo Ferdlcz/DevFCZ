@@ -10,10 +10,14 @@
     text-decoration: none;
 }
 
+body{
+    background-color: #1f1f1f;
+}
+
 .main{
     text-align: justify;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
     margin-left: 400px;
     margin-right: 100px;
     padding-top: calc(20px + 60px);
@@ -49,18 +53,18 @@
 
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 63px;
     left: 0;
     bottom: 0;
-    padding-top: 100px ;
+    padding-top: 20px;
     padding-left: 50px;
     padding-right: 50px;
     color: #fff;
     width: 200px;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 80px);
     background-color: #02123d;
     overflow-y: scroll;
-    
+    z-index: 1;
 }
 
 
@@ -74,6 +78,159 @@
     margin-top: 5px;
     color: gray;
 }
+
+.title{
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+hr{
+    box-shadow: 10px 5px 5px black;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #0077ff;
+    animation: barra-crecer 4s forwards infinite;
+  }
+  
+  @keyframes barra-crecer {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+    }
+    100%{
+        width: 0;
+    }
+  }
+
+  .letras {
+    font-size: 40px;
+    opacity: 0;
+    animation-name: aparecer;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+  }
+
+  .letras{
+    animation-name: repetir;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;  
+}
+
+  .letras:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .letras:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  @keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes repetir {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .grid{
+    border-radius: 40px;
+    background-color: darkgray;
+    box-shadow: 5px 5px 20px black;
+    padding: 50px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+  }
+
+  .grid h2 {
+    font-size: 24px;
+    text-align: center;
+    grid-column: 1 / -1;
+    width: 100%;
+    display: block;
+    transform: translateY(-20px);
+  }
+
+  .grid h3 {
+    font-size: 24px;
+    text-align: center;
+    grid-column: 1 / -1;
+    width: 100%;
+    display: block;
+    transform: translateY(-20px);
+  }
+
+  .grid img{
+    transform: translate(100px, -30px);
+  }
+
+  .gridimg{
+    margin-top: 20px;
+    margin-bottom: -70px;
+    box-sizing: border-box;
+    width: 70px;
+  }
+
+  .gridclms{
+    display: flex;
+    left: 90px;
+    position: relative;  
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .divfooter{
+    position: fixed;
+    width: 80%;
+    bottom: -100px;
+    transition: bottom 0.3s ease-in-out;
+    margin-left: 300px;
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px; 
+  
+  }
+  
+  footer p {
+    margin: 5px;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  footer a:hover {
+    color: #ddd;
+  }
+
+  
 
 
 /* RESPONSIVE DESIGN */
@@ -122,4 +279,38 @@
         display: block;
       }
 
+      .grid{
+        display: block;
+        margin-top: 20px;
+        padding: 20px;
+      }
+    
+      .grid img{
+        transform: translate(0);
+        margin-bottom: 20px;
+      }
+    
+      .grid h2,
+      .grid h3{
+        font-size: 18px;
+        text-align: center;
+        transform: translateY(-10px);
+      }
+      
+      .gridclms{
+        display: flex;
+        left: 0;
+        position: relative;  
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      
+  .divfooter{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-left: 0;
+  }
 }
